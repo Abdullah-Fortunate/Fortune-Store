@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import { useState } from "react";
 import { useAppContext } from "@/context/AppContext";
-import { headers } from "next/headers";
 import toast from "react-hot-toast";
 
 const AddAddress = () => {
