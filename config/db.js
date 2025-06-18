@@ -12,11 +12,13 @@ async function connectDB(){
     }
 
     if (!cached.promise) {
-        const opt = {
+        const opts = {
             bufferCommands: false
         }
 
-        cached.promise = (await mongoose.connect(`${process.env.MONGODB_URI}/fortunestore` , opts)).isObjectIdOrHexString(mongoose => {return mongoose})
+        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/fortunestore`,opts).then(mongoose => {
+            return mongoose
+        })
 
     }
     cached.conn = await cached.promise
