@@ -8,7 +8,7 @@ export async function GET(request) {
     try {
        const { userId } = getAuth()
        
-       await connectDB
+       await connectDB()
 
        const address = await Address.find(userId)
 
