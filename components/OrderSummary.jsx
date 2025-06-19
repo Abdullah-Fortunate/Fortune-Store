@@ -15,11 +15,11 @@ const OrderSummary = () => {
    try {
      
     const token = await getToken()
-    const { data } = await axios.get("/api/user/get-address",{headers:{Authorization:`Bearer ${token}`}})
+    const { data } = await axios.get("/api/User/get-address",{headers:{Authorization:`Bearer ${token}`}})
     if (data.success) {
       setUserAddresses(data.addresses)
       if (data.addresses.length > 0) {
-        setSelectedAddresss(data.addresseses[0])
+        setSelectedAddress(data.addresseses[0])
       }
     } else{
       toast.error(data.message)

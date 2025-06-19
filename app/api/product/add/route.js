@@ -75,7 +75,7 @@ export async function POST(request) {
         return NextResponse.json({ success: true, message: "Uploaded succesfully", newProduct})
         
     } catch (error) {
-        return NextResponse.json({success: false, message: error.message })
+        return NextResponse.json( {success: false, message: error.message } )
 
         
     }

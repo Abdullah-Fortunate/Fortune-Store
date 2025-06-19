@@ -10,9 +10,9 @@ export async function GET(request) {
        
        await connectDB()
 
-       const address = await Address.find(userId)
+       const addresses = await Address.find(userId)
 
-       return NextResponse.json({success: true, address});
+       return NextResponse.json({success: true, addresses});
 
     } catch (error) {
         
