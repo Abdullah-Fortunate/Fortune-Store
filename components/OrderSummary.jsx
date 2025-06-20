@@ -1,5 +1,6 @@
 import { addressDummyData } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -44,7 +45,7 @@ const OrderSummary = () => {
       cartItemsArray = cartItemsArray.filter(item => item.quantity > 0)
 
       if (cartItemsArray === 0) {
-        return toasty.error("cart is empty")
+        return toast.error("cart is empty")
       }
 
       const token = await getToken()

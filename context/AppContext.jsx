@@ -96,9 +96,10 @@ export const AppContextProvider = (props) => {
             try {
                const token = await getToken()
                
-               await axios.get("/api/cart/update", {cartData}, {headers:{Authorization: `Bearer ${token}`}})
+                await axios.post("/api/cart/update", {cartData}, {headers:{Authorization: `Bearer ${token}`}})
             
                 toast.success("Cart updated")
+
             } catch (error) {
                toast.error(error.message) 
             }
@@ -129,7 +130,7 @@ export const AppContextProvider = (props) => {
 
     useEffect(() => {
         fetchProductData()
-    }, [])
+    }, [user])
 
     useEffect(() => {
         if (user) {

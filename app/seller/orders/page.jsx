@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 const Orders = () => {
 
-    const { currency, getTken, user } = useAppContext();
+    const { currency, getToken, user } = useAppContext();
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ const Orders = () => {
     const fetchSellerOrders = async () => {
         try {
             
-            const token = await getTken()
+            const token = await getToken()
 
             const { data } = await axios.get(
                 "/api/order/seller-orders",
