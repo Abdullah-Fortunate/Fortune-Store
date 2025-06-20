@@ -20,7 +20,7 @@ const OrderSummary = () => {
     if (data.success) {
       setUserAddresses(data.addresses)
       if (data.addresses.length > 0) {
-        setSelectedAddress(data.addresseses[0])
+        setSelectedAddress(data.addresses[0])
       }
     } else{
       toast.error(data.message)
@@ -41,10 +41,10 @@ const OrderSummary = () => {
         return toast.error("Please select Address")
       }
 
-      let cartItemsArray = Objecty.keys(cartItems).map((key) => ({product:key, quantity:cartItems[key]}))
+      let cartItemsArray = Object.keys(cartItems).map((key) => ({product:key, quantity:cartItems[key]}))
       cartItemsArray = cartItemsArray.filter(item => item.quantity > 0)
 
-      if (cartItemsArray === 0) {
+      if (cartItemsArray.length === 0) {
         return toast.error("cart is empty")
       }
 
@@ -62,7 +62,7 @@ const OrderSummary = () => {
       if (data.success) {
         toast.success(data.message)
         setCartItems({})
-        router.push("order-placed")
+        router.push("/order-placed")
       } else {
         toast.error(data.message)
       }
